@@ -3,10 +3,12 @@
  *dar nombre del archivo que los contendra */
  
  #include "Paciente.h"
+ #include <fstream>
+ #include <iostream>
  
  int main(int argc, char *argv[]){
 	 int cedula, edad,dosisM;
-	 string nombre, sexo,  nombreE, descripE, diaCM, descripCM, nombreM;
+	 string nombre, sexo,  nombreE, descripE, diaCM, descripCM, nombreM, archivo;
 	 cout << "Ingrese los datos del paciente:\n Ingrese la cedula\t";
 	 cin >> cedula;
 	 cout << "Ingrese el nombre\t";
@@ -27,7 +29,14 @@
 	 cin >> nombreM;
 	 cout << "Ingrese dosis de medicamento\t";
 	 cin >> dosisM;
-	 Paciente *objIngresar new Paciente(cedula, nombre,sexo, edad, nombreE, descripE, diaCM, descripCM, nombreM, dosisM);
+	 Paciente objPaciente new Paciente(cedula, nombre,sexo, edad, nombreE, descripE, diaCM, descripCM, nombreM, dosisM);
 	 
+	 cout << "Ingrese el nombre del archivo para guardar los datos\t";
+	 ofstream archivo(archivo);
+	 archivo << objPaciente.getCedula() << "\t";
+	 archivo << objPaciente.getNombre() << "\t";
+	 archivo << objPaciente.getSexo() << "\t";
+	 
+	 archivo.close();
 	 
  }

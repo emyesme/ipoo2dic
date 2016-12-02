@@ -7,10 +7,11 @@
  #ifndef CITASMEDICAS_H
  #define CITASMEDICAS_H
  
- #include <iostream>
- 
+ #include <string>
+
+ using std::string;
  using namespace std;
- 
+
  class CitasMedicas{
 	 private:
 		string dia;
