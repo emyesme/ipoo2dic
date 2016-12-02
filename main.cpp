@@ -13,6 +13,8 @@
 	 cin >> nombre;
 	 cout << "Ingrese la edad\t";
 	 cin >> edad;
+	 cout << "Ingrese el sexo";
+	 cin >> sexo;
 	 cout << "Datos de la Historia Clinica\n Ingrese enfermedad diagnosticada\t";
 	 cin >> nombreE;
 	 cout << "Ingrese descripcion de la enfermedad\t";
@@ -25,6 +27,7 @@
 	 cin >> nombreM;
 	 cout << "Ingrese dosis de medicamento\t";
 	 cin >> dosisM;
-	 Paciente *objIngresar new Paciente(cedula, edad, nombre, sexo, nombreE, descripE, diaCM, descripCM, nombreM, dosisM);
+	 Paciente *objIngresar new Paciente(cedula, nombre,sexo, edad, nombreE, descripE, diaCM, descripCM, nombreM, dosisM);
+	 
 	 
  }
