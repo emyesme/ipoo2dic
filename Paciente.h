@@ -13,7 +13,7 @@
 #define PACIENTE_H
 
 #include <string>
-#include "historia.h"
+#include "Historia.h"
 
 using std::string;
 
@@ -26,7 +26,15 @@ class Paciente{
 	Historia *objHistoria;
 	
 	public:
-	Paciente(int cedula, string nombre, string sexo, int edad, string nombre2, string descripcion, string dia,string descripcion2);
+	Paciente(int cedula, string nombre, string sexo, int edad, string nombre2, string descripcion, string dia,string descripcion2, string nombre3, int dosis);
 	~Paciente();
 	
-}
+	int getCedula();
+	string getNombre();
+	string getSexo();
+	int getEdad();
+	Historia *getObjHistoria();
+	
+};
+
+#endif
