@@ -5,10 +5,15 @@
  #include "Paciente.h"
  #include <fstream>
  #include <iostream>
+ #include <string.h>
+ #include <ctype.h>
+ 
+ using namespace std;
  
  int main(int argc, char *argv[]){
 	 int cedula, edad,dosisM;
-	 string nombre, sexo,  nombreE, descripE, diaCM, descripCM, nombreM, archivo;
+	 string nombre, sexo,  nombreE, descripE, diaCM, descripCM, nombreM;
+	 string name;
 	 cout << "Ingrese los datos del paciente:\n Ingrese la cedula\t";
 	 cin >> cedula;
 	 cout << "Ingrese el nombre\t";
@@ -30,23 +35,25 @@
 	 cout << "Ingrese dosis de medicamento\t";
 	 cin >> dosisM;
 	 Paciente *objPaciente =  new Paciente(cedula, nombre,sexo, edad, nombreE, descripE, diaCM, descripCM, nombreM, dosisM);
-	 
 	 cout << "Ingrese el nombre del archivo para guardar los datos\t";
-	 ofstream archivo(archivo+ ".txt");
-	 archivo << "Paciente:\n"
+	 cin >> name;
+	 char n[name.length() +1];
+	 strcpy(n,name.c_str());
+	 ofstream archivo(n);
+	 archivo << "Paciente:\n";
 	 archivo << objPaciente->getCedula() << "\t";
 	 archivo << objPaciente->getNombre() << "\t";
 	 archivo << objPaciente->getSexo() << "\t";
 	 archivo << objPaciente->getEdad() << "\n";
 	 archivo << "Historia\t Enfermedades\n";
-	 archivo << objPaciente->getNombreEnfermedades() << "\t";
-	 archivo << objPaciente->getDescripcionEnfermedades() << "\n";
+	 archivo << objPaciente->getObjHistoria()->getNombreEnfermedades() << "\t";
+	 archivo << objPaciente->getObjHistoria()->getDescripcionEnfermedades() << "\n";
 	 archivo << "Citas\n";
-	 archivo << objPaciente-> getDiaCitas() << "\t";
-	 archivo << objPaciente->getDescripcionCitas() << "\n";
-	 archivo << "Medicamentos \n"
-	 archivo << objPaciente->getNombreMedicamentos() << "\t";
-	 archivo << objPaciente->getDosisMedicamentos() << "\n\n fin datos";
+	 archivo << objPaciente->getObjHistoria()->getDiaCitas() << "\t";
+	 archivo << objPaciente->getObjHistoria()->getDescripcionCitas() << "\n";
+	 archivo << "Medicamentos \n";
+	 archivo << objPaciente->getObjHistoria()->getNombreMedicamentos() << "\t";
+	 archivo << objPaciente->getObjHistoria()->getDosisMedicamentos() << "\n\n fin datos";
 	 
 	 archivo.close();
 	 
