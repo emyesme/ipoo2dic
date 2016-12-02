@@ -21,8 +21,8 @@
 		~CitasMedicas();
 		
 		//metodos
-		getDia();
-		getDescripcion();
+		string getDia();
+		string getDescripcion();
 };
 #endif 
 
