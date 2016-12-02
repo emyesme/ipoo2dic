@@ -32,11 +32,21 @@
 	 Paciente *objPaciente =  new Paciente(cedula, nombre,sexo, edad, nombreE, descripE, diaCM, descripCM, nombreM, dosisM);
 	 
 	 cout << "Ingrese el nombre del archivo para guardar los datos\t";
-	 ofstream archivo(archivo);
+	 ofstream archivo(archivo+ ".txt");
+	 archivo << "Paciente:\n"
 	 archivo << objPaciente->getCedula() << "\t";
 	 archivo << objPaciente->getNombre() << "\t";
 	 archivo << objPaciente->getSexo() << "\t";
-	 archivo << objPaciente->getEdad() << "\t";
+	 archivo << objPaciente->getEdad() << "\n";
+	 archivo << "Historia\t Enfermedades\n";
+	 archivo << objPaciente->getNombreEnfermedades() << "\t";
+	 archivo << objPaciente->getDescripcionEnfermedades() << "\n";
+	 archivo << "Citas\n";
+	 archivo << objPaciente-> getDiaCitas() << "\t";
+	 archivo << objPaciente->getDescripcionCitas() << "\n";
+	 archivo << "Medicamentos \n"
+	 archivo << objPaciente->getNombreMedicamentos() << "\t";
+	 archivo << objPaciente->getDosisMedicamentos() << "\n\n fin datos";
 	 
 	 archivo.close();
 	 
