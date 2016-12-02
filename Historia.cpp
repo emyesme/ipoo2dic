@@ -1,8 +1,10 @@
-Historia::Historia(string nombreEnfermedades, string descripcionEnfermedades, string diaCitas, string descripcionCitas, string nombreMedicamentos, string numeroDosisMedicamentos){
+#include "Historia.h"
+
+Historia::Historia(string nombreEnfermedades, string descripcionEnfermedades, string diaCitas, string descripcionCitas,	string nombreMedicamentos, int numeroDosisMedicamentos){
 	
-	Enfermedades objEnfermedades = new Enfermedades(numbreEnfermedades, descripcionEnfermedades);
-	CitasMedicas objCitasMedicas = new CitasMedicas(diaCitas, descripcionCitas);
-	Medicamentos objMedicamentos = new Medicamentos(nombreMedicamentos, numeroDosisMedicamentos);
+	objEnfermedades = new Enfermedades(nombreEnfermedades, descripcionEnfermedades);
+	objCitasMedicas = new CitasMedicas(diaCitas, descripcionCitas);
+	objMedicamentos = new Medicamentos(nombreMedicamentos, numeroDosisMedicamentos);
 }
 
 Historia::~Historia(){
@@ -19,7 +21,6 @@ string Historia::getNombreEnfermedades(){
 }
 string Historia::getDescripcionEnfermedades(){
 	return objEnfermedades->getDescripcion();
-	
 }
 		
 string Historia::getDiaCitas(){
